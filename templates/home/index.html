@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block content %}
+    <div class="min-vh-100 min-vw-100 bg-primary p-4">
+        <div class="d-flex justify-content-end pb-2">
+            <a href="{% url 'register_folder' %}" type="button" class="btn btn-secondary shadow rounded-3">Add New Folder</a>
+        </div>
+        <div class="bg-light w-100 p-3 rounded-3">
+            <div class="row">
+            {% for folder in folders %}
+                <div class="col-12">
+                    <span class="text-muted">
+                        {{folder.title}}
+                    </span>
+                </div>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+{% endblock %}
