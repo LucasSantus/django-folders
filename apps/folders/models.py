@@ -3,7 +3,7 @@ from django.template.defaultfilters import slugify
 
 class Folder(models.Model):
     title = models.CharField("title", max_length = 120)
-    subfolder = models.BooleanField(default = False, null = True, blank = True)
+    sub_folder = models.BooleanField(default = False, null = True, blank = True)
     folder = models.ForeignKey("self", on_delete = models.CASCADE, related_name = 'folder_FolderFK', null = True, blank = True)
     slug = models.SlugField(unique = True, null = True, blank = True)
     time_registered = models.DateTimeField("Horário Registrado", auto_now_add = True)
