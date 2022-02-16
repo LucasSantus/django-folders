@@ -9,29 +9,34 @@
 {% endblock %}
 
 {% block content %}
-    <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">{{ action }} Folder</h1>
-
-    <!-- Nested Row within Card Body -->
-    <form class="user" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-
-        {{form|bootstrap}}
-        
-        <button class="btn bt-primary">
-            {{action}}
-        </button>
-        <a href="" class="btn bt-secondary">
-            Cancelar
-        </a>
-    </form> 
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="modal-body">
+                        <p class="text-muted fs-3 text-center">{{action}}</p>
+                        {{form|bootstrap}}
+                        <div class="d-flex justify-content-end pt-3 gap-2">
+                            <a href="/" class="btn btn-secondary">
+                                Cancel
+                            </a>
+                            <button class="btn btn-primary">
+                                {{action}}
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block script %}
-    <!-- Inicialização -->
-    <!-- <script>
+    <script>
         $(document).ready(function(){
-            $("#id_nome").attr("required", false);
+            $("#id_title").attr("required", false);
+            $("#staticBackdrop").modal('show');
         });
-    </script> -->
+    </script>
 {% endblock %}

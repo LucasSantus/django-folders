@@ -23,6 +23,14 @@
 
         <!-- Import Css Index -->
         <link href="{% static 'css/index.css' %}" rel="stylesheet">
+
+        {% block css %}
+        {% endblock %}
+
+        <title>
+            {% block title %}
+            {% endblock %}
+        </title>
         
         <!-- END: CSS ASSETS -->
     </head>
@@ -30,10 +38,13 @@
 
     <body>
         <!-- BEGIN: CONTENT -->
-
-        {% block content %}
-        {% endblock %}
-
+        <div class="min-vh-100 bg-primary p-4">
+            {% block breadcrumb %}
+            {% endblock %}
+            
+            {% block content %}
+            {% endblock %}
+        </div>
         <!-- END: CONTENT -->
 
         <!-- BEGIN: JS ASSETS -->
@@ -51,5 +62,8 @@
         <script src="{% static 'js/index.js' %}"></script>
 
         <!-- END: JS ASSETS -->
+
+        {% block script %}
+        {% endblock %}
     </body>
 </html>

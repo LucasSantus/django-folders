@@ -6,38 +6,42 @@
     Dashboard
 {% endblock %}
 
+{% block breadcrumb %}
+    <div class="row">
+        <div class="col-9">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item bg-light p-2 rounded-start"><a href="/">Dashboard</a></li>
+                    {% for breadcrumb in breadcrumbs reversed %}
+                        {% if forloop.last %}
+                            <li class="breadcrumb-item active bg-light p-2 rounded-end" aria-current="page">{{breadcrumb.title}}</li>
+                        {% else %}
+                            <li class="breadcrumb-item bg-light p-2"><a href="{% url 'list_sub_folders' breadcrumb.slug %}">{{breadcrumb.title}}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ol>
+            </nav>
+        </div>
+
+        <div class="col-3">
+            <div class="d-flex justify-content-end pb-2">
+                <a href="{% url 'register_sub_folder' folder.slug %}" type="button" class="btn btn-secondary shadow rounded-3">Add New Folder</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
 {% block content %}
-    <div class="min-vh-100 min-vw-100 bg-primary p-4">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb bg-light w-auto">
-                <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-                {% for breadcrumb in breadcrumbs reversed %}
-                    {% if forloop.last %}
-                        <li class="breadcrumb-item active" aria-current="page">{{breadcrumb.title}}</li>
-                    {% else %}
-                        <li class="breadcrumb-item"><a href="{% url 'list_sub_folders' breadcrumb.slug %}">{{breadcrumb.title}}</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ol>
-        </nav>
-
-        {{breadcrumb}}
-
-        <div class="d-flex justify-content-end pb-2">
-            <a href="{% url 'register_sub_folder' folder.slug %}" type="button" class="btn btn-secondary shadow rounded-3">Add New Folder</a>
-        </div>
-
-        <div class="bg-light w-100 p-3 rounded-3">
-            <div class="row">
-            {% for sub_folder in sub_folders %}
-                <a href="{% url 'list_sub_folders' sub_folder.slug %}">
-                    <div class="col-12">
-                        <span class="text-muted">
-                            {{sub_folder.title}}
-                        </span>
-                    </div>
-                </a>
-            {% endfor %}
-        </div>
+    <div class="bg-light w-100 h-100 p-3 rounded-3">
+        <div class="row">
+        {% for sub_folder in sub_folders %}
+            <a href="{% url 'list_sub_folders' sub_folder.slug %}">
+                <div class="col-12">
+                    <span class="text-muted">
+                        {{sub_folder.title}}
+                    </span>
+                </div>
+            </a>
+        {% endfor %}
     </div>
 {% endblock %}

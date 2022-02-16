@@ -40,8 +40,8 @@ def register_sub_folder(request, slug):
     return render(request, "folders/register_folder.html", context)
 
 def list_sub_folders(request, slug_folder):
-    folder = Folder.objects.get(slug = slug_folder)
-    sub_folders = Folder.objects.filter(folder = folder)
+    folder = Folder.objects.select_related('folder').get(slug = slug_folder)
+    sub_folders = Folder.objects.select_related('folder').filter(folder = folder)
 
     breadcrumbs = []
 
@@ -49,8 +49,11 @@ def list_sub_folders(request, slug_folder):
     breadcrumbs.append(folder)
 
     while aux.sub_folder != False:
-        aux = aux.folder
-        breadcrumbs.append(aux)
+        if len(breadcrumbs) < 5:
+            aux = aux.folder
+            breadcrumbs.append(aux)
+        else:
+            break
 
     context = {
         'folder': folder,

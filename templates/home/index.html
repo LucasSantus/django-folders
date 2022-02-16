@@ -3,26 +3,47 @@
 {% load static %}
 
 {% block title %}
-    Dashboard
+    Folders
+{% endblock %}
+
+{% block breadcrumb %}
+    <div class="row">
+        <div class="col-9">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active bg-light p-2 rounded" aria-current="page">Dashboard</li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="col-3">
+            <div class="d-flex justify-content-end pb-2">
+                <a href="{% url 'register_folder' %}" type="button" class="btn btn-secondary shadow rounded-3">New Folder</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block content %}
-    <div class="min-vh-100 min-vw-100 bg-primary p-4">
-        <div class="d-flex justify-content-end pb-2">
-            <a href="{% url 'register_folder' %}" type="button" class="btn btn-secondary shadow rounded-3">Add New Folder</a>
-        </div>
-
-        <div class="bg-light w-100 p-3 rounded-3">
+    <div class="bg-light p-3 rounded-3" style="height: 86vh;">
+        {% if folders %}
             <div class="row">
-            {% for folder in folders %}
-                <a href="{% url 'list_sub_folders' folder.slug %}">
-                    <div class="col-12">
-                        <span class="text-muted">
-                            {{folder.title}}
-                        </span>
+                {% for folder in folders %}
+                    <div class="col-6 col-sm-4 col-md-2">
+                        <a href="{% url 'list_sub_folders' folder.slug %}">
+                            <span class="text-muted">
+                                {{folder.title}}
+                            </span>
+                        </a>
                     </div>
-                </a>
-            {% endfor %}
-        </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="h-100">
+                <div class="d-flex align-items-center justify-content-center h-100">
+                    <span class="text-muted">Vazio</span>
+                </div>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
