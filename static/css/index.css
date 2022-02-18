@@ -22,8 +22,14 @@
     color: rgb(218, 0, 0);
 } */
 
+.folder-icon:hover .row .col-12 span{
+    color: blue;
+}
+
 .folder:hover,
-.folder-icon:hover{
+.folder-icon:hover
+
+{
     transform: scale(1.01);
     color: rgb(218, 0, 0);
 }
