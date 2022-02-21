@@ -8,57 +8,36 @@
 
 {% block breadcrumb %}
     <div class="row">
-        <div class="col-9">
+        <div class="col-12">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item active bg-light p-2 rounded" aria-current="page">Dashboard</li>
                 </ol>
             </nav>
         </div>
-
-        <div class="col-3">
-            <div class="d-flex justify-content-end pb-2">
-                <a href="{% url 'register_folder' %}" type="button" class="btn btn-secondary shadow rounded-3">New Folder</a>
-            </div>
-        </div>
     </div>
 {% endblock %}
 
 {% block content %}
-    <div class="bg-light p-3 rounded-3" style="height: 86vh;">
-        <div class="row">
-            <div class="col-12 col-sm-6 col-md-3 col-lg-2">
-                <div class="folder-icon border border-1 shadow">
-                    <div class="row text-center">
-                        <div class="col-12">
-                            <span class="material-icons">add</span>
-                        </div>
-                        <div class="col-12">
-                            <span>Add New Folder</span>
-                        </div>
+    <div class="row">
+        <a href="{% url 'register_folder' %}" class="folder col-12 col-sm-6 col-md-3 col-lg-2 pt-2">
+            <div class="folder-icon border border-1 shadow-sm">
+                <div class="row text-center">
+                    <div class="col-12">
+                        <span class="material-icons">add</span>
+                    </div>
+                    <div class="col-12">
+                        <span>Add</span>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- {% if folders %}
-            <div class="row">
-                {% for folder in folders %}
-                    <div class="col-6 col-sm-4 col-md-2">
-                        <a href="{% url 'list_sub_folders' folder.slug %}">
-                            <span class="text-muted">
-                                {{folder.title}}
-                            </span>
-                        </a>
-                    </div>
-                {% endfor %}
-            </div>
-        {% else %}
-            <div class="h-100">
-                <div class="d-flex align-items-center justify-content-center h-100">
-                    <span class="text-muted">Vazio</span>
+        </a>
+        {% for folder in folders %}
+            <a href="{% url 'list_sub_folders' folder.slug %}" class="folder col-12 col-sm-6 col-md-3 col-lg-2 pt-2">
+                <div class="folder-icon border border-1 shadow-sm">
+                    <span class="text-muted">{{folder.title}}</span>
                 </div>
-            </div>
-        {% endif %} -->
+            </a>
+        {% endfor %}
     </div>
 {% endblock %}

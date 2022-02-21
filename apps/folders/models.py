@@ -1,6 +1,5 @@
 from django.db import models
 from django.template.defaultfilters import slugify
-
 class Folder(models.Model):
     title = models.CharField("title", max_length = 120)
     sub_folder = models.BooleanField(default = False, null = True, blank = True)

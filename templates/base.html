@@ -21,31 +21,46 @@
         <!-- Import Css Bootstrap -->
         <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
 
+        <!-- Import Css Folder -->
+        <link href="{% static 'css/folder.css' %}" rel="stylesheet">
+
         <!-- Import Css Index -->
         <link href="{% static 'css/index.css' %}" rel="stylesheet">
 
         {% block css %}
         {% endblock %}
 
+        <!-- END: CSS ASSETS -->
+
         <title>
             {% block title %}
             {% endblock %}
         </title>
-        
-        <!-- END: CSS ASSETS -->
     </head>
     <!-- END: HEAD -->
 
     <body>
+        <!-- BEGIN: HEADER -->
+        <header></header>
+        <!-- END: HEADER -->
+
         <!-- BEGIN: CONTENT -->
-        <div class="min-vh-100 bg-primary p-4">
-            {% block breadcrumb %}
-            {% endblock %}
-            
-            {% block content %}
-            {% endblock %}
-        </div>
+        <main>
+            <div class="min-vh-100 bg-primary p-4">
+                <div class="bg-light p-3 rounded-3 min-vh-100">
+                    {% block breadcrumb %}
+                    {% endblock %}
+                    
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </main>
         <!-- END: CONTENT -->
+
+        <!-- BEGIN: FOOTER -->
+        <footer></footer>
+        <!-- END: FOOTER -->
 
         <!-- BEGIN: JS ASSETS -->
 

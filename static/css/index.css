@@ -2,130 +2,13 @@
     color: red;
 }
 
-.folder,
-.folder-icon{
-    width: 100%;
-    border-radius: 15px;
-}
-
-.folder-icon{
+body {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
-.folder-icon span{
-    color: rgb(196, 186, 186);
+main {
+    flex: 1 0 auto;
 }
-
-/* .folder-icon span:hover{
-    color: rgb(218, 0, 0);
-} */
-
-.folder-icon:hover .row .col-12 span{
-    color: blue;
-}
-
-.folder:hover,
-.folder-icon:hover
-
-{
-    transform: scale(1.01);
-    color: rgb(218, 0, 0);
-}
-
-/* 
-.folder-rotated{
-    display: flex;
-    position: relative;
-    border-radius: 15px;
-    background-color: rgb(0, 17, 255);
-    width: 65px;
-    max-height: 70px;
-    transform: translate(5px, -5px);
-}
-
-.folder-rotated:hover {
-    transform: translate(8px, -8px) rotate(5deg);
-} */
-
-@media (min-width: 100px) and (max-width: 219.99px) {
-    .folder,
-    .folder-icon{
-        height: 5rem;
-    }
-}
-
-@media (min-width: 220px) and (max-width: 299.99px) {
-    .folder,
-    .folder-icon{
-        height: 10rem;
-    }
-}
-
-@media (min-width: 300px) and (max-width: 479.99px) {
-    .folder,
-    .folder-icon{
-        height: 15rem;
-    }
-}
-
-@media (min-width: 480px) and (max-width: 574.99px) {
-    .folder,
-    .folder-icon{
-        height: 20rem;
-    }
-}
-
-@media (min-width: 575px) and (max-width: 766.99px) {
-    .folder,
-    .folder-icon{
-        height: 15rem;
-    }
-}
-
-@media (min-width: 767px) and (max-width: 990.99px) {
-    .folder,
-    .folder-icon{
-        height: 10rem;
-    }
-}
-
-@media (min-width: 991px) and (max-width: 1200.99px) {
-    .folder,
-    .folder-icon{
-        height: 8rem;
-    }
-}
-
-@media (min-width: 1201px) and (max-width: 1494.99px) {
-    .folder,
-    .folder-icon{
-        height: 10rem;
-    }
-}
-
-@media (min-width: 1495px){
-    .folder,
-    .folder-icon{
-        height: 15rem;
-    }
-}
-
-
-
-
-/* 
-.folder-rotated{
-    display: flex;
-    position: relative;
-    border-radius: 15px;
-    background-color: rgb(0, 17, 255);
-    width: 65px;
-    max-height: 70px;
-    transform: translate(5px, -5px);
-}
-
-.folder-rotated:hover {
-    transform: translate(8px, -8px) rotate(5deg);
-} */
+      

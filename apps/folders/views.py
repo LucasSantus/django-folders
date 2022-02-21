@@ -49,6 +49,7 @@ def list_sub_folders(request, slug_folder):
     breadcrumbs.append(folder)
 
     while aux.sub_folder != False:
+        print(aux.title)
         if len(breadcrumbs) < 5:
             aux = aux.folder
             breadcrumbs.append(aux)

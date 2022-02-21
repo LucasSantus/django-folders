@@ -1,0 +1,91 @@
+.folder{
+    text-decoration: none !important;
+}
+
+.folder-text, .folder-icon{
+    width: 100%;
+    border-radius: 15px;
+}
+
+.folder-text:hover, .folder-icon:hover{
+    transform: scale(1.05);
+    opacity: .7;
+}
+
+.folder-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.folder-icon span{
+    color:  #0378d5;
+}
+
+.folder-icon:hover span{
+    color:  #0378d5;
+}
+
+@media (min-width: 100px) and (max-width: 219.99px) {
+    .folder-text,
+    .folder-icon{
+        height: 7rem;
+    }
+}
+
+@media (min-width: 220px) and (max-width: 299.99px) {
+    .folder-text,
+    .folder-icon{
+        height: 10rem;
+    }
+}
+
+@media (min-width: 300px) and (max-width: 479.99px) {
+    .folder-text,
+    .folder-icon{
+        height: 15rem;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 574.99px) {
+    .folder-text,
+    .folder-icon{
+        height: 20rem;
+    }
+}
+
+@media (min-width: 575px) and (max-width: 766.99px) {
+    .folder-text,
+    .folder-icon{
+        height: 15rem;
+    }
+}
+
+@media (min-width: 767px) and (max-width: 990.99px) {
+    .folder-text,
+    .folder-icon{
+        height: 10rem;
+    }
+}
+
+@media (min-width: 991px) and (max-width: 1200.99px) {
+    .folder-text,
+    .folder-icon{
+        height: 8rem;
+    }
+}
+
+@media (min-width: 1201px) and (max-width: 1494.99px) {
+    .folder-text,
+    .folder-icon{
+        height: 10rem;
+    }
+}
+
+@media (min-width: 1495px){
+    .folder-text,
+    .folder-icon{
+        height: 15rem;
+    }
+}
