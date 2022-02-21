@@ -27,8 +27,8 @@
 
 {% block content %}
     <div class="row">
-        <a href="{% url 'register_sub_folder' folder.slug %}" class="folder col-12 col-sm-6 col-md-3 col-lg-2 pt-2">
-            <div class="folder-icon border border-1 shadow-sm">
+        <div class="col-12 col-sm-6 col-md-3 col-lg-2 pt-4">
+            <a href="{% url 'register_sub_folder' folder.slug %}" class="folder folder-icon border border-1 shadow-sm">
                 <div class="row text-center">
                     <div class="col-12">
                         <span class="material-icons">add</span>
@@ -37,14 +37,14 @@
                         <span>Add</span>
                     </div>
                 </div>
-            </div>
-        </a>
-        {% for sub_folder in sub_folders %}
-            <a href="{% url 'list_sub_folders' sub_folder.slug %}" class="folder col-12 col-sm-6 col-md-3 col-lg-2 pt-2">
-                <div class="folder-icon border border-1 shadow-sm">
-                    <span class="text-muted">{{sub_folder.title}}</span>
-                </div>
             </a>
+        </div>
+        {% for sub_folder in sub_folders %}
+            <div class="col-12 col-sm-6 col-md-3 col-lg-2 pt-4">
+                <a href="{% url 'list_sub_folders' sub_folder.slug %}" class="folder folder-icon border border-1 shadow-sm">
+                    <span class="text-muted">{{sub_folder.title}}</span>
+                </a>
+            </div>
         {% endfor %}
     </div>
 {% endblock %}
