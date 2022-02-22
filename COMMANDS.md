@@ -16,20 +16,6 @@
   make help
 ```
 
-**Para instalação automática do projeto.**
-  
-**Windows**
-
-```
-  make install-windows
-```
-
-**Linux**
-
-```
-  make install-linux
-```
-
 **Para migrar o banco de dados.**
 
 ```
