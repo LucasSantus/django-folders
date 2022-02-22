@@ -4,8 +4,6 @@
 
 > É necessário que contenha "make" instalado e funcionando corretamente em sua máquina.
 
--[X] Make
-
 > Esses são alguns comandos para acelerar a fase de desenvolvimento do projeto em algumas etapas.
 
 <h3>:information_source: Automate</h3>
