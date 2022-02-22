@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <form method="POST">
@@ -35,8 +35,10 @@
 {% block script %}
     <script>
         $(document).ready(function(){
+            
+            $("#modal").modal('show');
             $("#id_title").attr("required", false);
-            $("#staticBackdrop").modal('show');
+            $("#id_title").focus()
         });
     </script>
 {% endblock %}

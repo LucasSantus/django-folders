@@ -8,7 +8,7 @@ def register_folder(request):
         form = RegisterFolderForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, f"Registered sucess!")
+            messages.success(request, f"Registrado com sucesso!")
             return redirect('/')
 
     context = {
@@ -29,7 +29,7 @@ def register_sub_folder(request, slug):
             sub_folder.folder = folder
             sub_folder.save()
 
-            messages.success(request, f"Registered sucess!")
+            messages.success(request, f"Registrado com sucesso!")
             return redirect('list_sub_folders', folder.slug)
 
     context = {

@@ -29,21 +29,19 @@
 
         {% block css %}
         {% endblock %}
-
         <!-- END: CSS ASSETS -->
 
+        <!-- BEGIN: TITLE -->
         <title>
             {% block title %}
             {% endblock %}
         </title>
+        <!-- END: TITLE -->
+
     </head>
     <!-- END: HEAD -->
 
     <body>
-        <!-- BEGIN: HEADER -->
-        <header></header>
-        <!-- END: HEADER -->
-
         <!-- BEGIN: CONTENT -->
         <main>
             <div class="min-vh-100 bg-primary p-4">
@@ -57,10 +55,6 @@
             </div>
         </main>
         <!-- END: CONTENT -->
-
-        <!-- BEGIN: FOOTER -->
-        <footer></footer>
-        <!-- END: FOOTER -->
 
         <!-- BEGIN: JS ASSETS -->
 
@@ -77,6 +71,42 @@
         <script src="{% static 'js/index.js' %}"></script>
 
         <!-- END: JS ASSETS -->
+
+        <script>
+            $(document).ready(function(){
+                $(".toast").toast('show');
+            });
+        </script>
+
+        <!-- BEGIN: MESSAGES -->
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="position-fixed bottom-0 top-2 right-5 p-3" style="z-index: 5; right: 0; bottom: 0; top:0; margin-top: 60px;">
+                        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000">
+                            <div class="toast-header">
+                                <strong class="me-auto text-{{message.tags}}">
+                                    {% if message.tags == 'success'%}
+                                        Opa, Sucesso...
+                                    {% elif message.tags == 'info'%}
+                                        Informações para você...
+                                    {% elif message.tags == 'warning'%} 
+                                        Ops! Falhas a vista....
+                                    {% elif message.tags == 'error'%}
+                                        Ops! Ocorreu algum erro....
+                                    {% endif %}</strong>
+                                <small class="text-muted">just now</small>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body text-{{message.tags}}">
+                                {{message}}
+                            </div>
+                        </div>
+                </div>
+            {% endfor %}    
+        {% endif %}
+
+        <!-- END: MESSAGES -->
 
         {% block script %}
         {% endblock %}
