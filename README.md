@@ -67,9 +67,9 @@ As seguintes ferramentas foram usadas na construção do projeto:
 <h4 id="clonando">Clonando o Repositório</h4>
 
 ```
-git clone git@github.com:LucasSantus/folders.git
+git clone git@github.com:LucasSantus/django-folders.git
 
-cd folders
+cd django-folders
 ```
 
 <h4 id="rodando">Rodando o Projeto</h4>
