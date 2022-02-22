@@ -95,6 +95,8 @@ python manage.py makemigrations folders
 
 python manage.py migrate
 
+python manage.py collectstatic
+
 python manage.py runserver
 ```
 
@@ -122,6 +124,8 @@ python manage.py makemigrations home
 python manage.py makemigrations folders
 
 python manage.py migrate
+
+python manage.py collectstatic
 
 python manage.py runserver
 ```
