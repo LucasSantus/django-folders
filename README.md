@@ -6,7 +6,7 @@
 
 A ideia é:
 
-_"Criar um Sistema de Pastas onde o mesmo tenha um design simples e belo, com intuito de promover o aprendizado e gerar um projeto completo utilizando o Django framework."_
+_"Criar um sistema de pastas possibilitando o cadastro de sub pastas sem um limite, onde o mesmo tenha um design simples e belo, com intuito de promover o aprendizado utilizando o Django Framework."_
 
 --------------------------------------------------------------------------------------
 
@@ -31,7 +31,7 @@ _"Criar um Sistema de Pastas onde o mesmo tenha um design simples e belo, com in
 <h3 id="status">:heavy_exclamation_mark: Status do Projeto</h3>
 
 <h4 align="center"> 
-	:construction: Sistema Web em construção... :construction:
+	:heavy_check_mark: Sistema Web finalizado... :heavy_check_mark:
 </h4>
 
 --------------------------------------------------------------------------------------
@@ -57,7 +57,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 <h3 id="funcionalidades">:sparkles: Funcionalidades</h3>
 
-:construction: - As Funcionalidades serão construída em breve... :construction:
+- [X] Possibilita a criação de pastas.
+- [X] Possibilita a criação de varias sub pastas.
 
 --------------------------------------------------------------------------------------
 
