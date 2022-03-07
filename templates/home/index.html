@@ -32,10 +32,29 @@
                 </div>
             </a>
         </div>
+
         {% for folder in folders %}
-            <div class="col-12 col-sm-6 col-md-3 col-lg-2 pt-4">
+            <!-- <div class="col-12 col-sm-6 col-md-3 col-lg-2 pt-4">
                 <a href="{% url 'list_sub_folders' folder.slug %}" class="folder folder-icon border border-1 shadow-sm">
                     <span class="text-muted">{{folder.title}}</span>
+                </a>
+            </div> -->
+
+            <div class="col-12 col-sm-6 col-md-3 col-lg-2 pt-4">
+                <a href="{% url 'list_sub_folders' folder.slug %}" class="folder folder-text border border-1 shadow-sm">
+                    <span class="text-muted">{{folder.title}}</span>
+                    
+                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink{{folder.id}}" data-bs-toggle="dropdown" aria-expanded="false">
+                       
+                    </a>
+                    
+                    
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink{{folder.id}}">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
                 </a>
             </div>
         {% endfor %}

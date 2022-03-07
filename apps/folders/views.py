@@ -15,7 +15,6 @@ def register_folder(request):
         'form': form,
         'action': 'Register'
     }
-
     return render(request, "folders/register_folder.html", context)
 
 def register_sub_folder(request, slug):
@@ -36,7 +35,6 @@ def register_sub_folder(request, slug):
         'form': form,
         'action': 'Register'
     }
-
     return render(request, "folders/register_folder.html", context)
 
 def list_sub_folders(request, slug_folder):
@@ -49,7 +47,6 @@ def list_sub_folders(request, slug_folder):
     breadcrumbs.append(folder)
 
     while aux.sub_folder != False:
-        print(aux.title)
         if len(breadcrumbs) < 5:
             aux = aux.folder
             breadcrumbs.append(aux)
@@ -61,5 +58,4 @@ def list_sub_folders(request, slug_folder):
         'sub_folders': sub_folders,
         'breadcrumbs': breadcrumbs
     }
-
     return render(request, "folders/list_sub_folders.html", context)

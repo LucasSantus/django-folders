@@ -7,8 +7,19 @@
     border-radius: 15px;
 }
 
+.folder-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.folder-text .btn{
+    position: fixed;
+    top: 0px;
+}
+
 .folder-text:hover, .folder-icon:hover{
-    transform: scale(1.05);
     opacity: .7;
 }
 

@@ -7,7 +7,7 @@ class Folder(models.Model):
     folder = models.ForeignKey("self", on_delete = models.CASCADE, related_name = 'folder_FolderFK', null = True, blank = True)
     slug = AutoSlugField(populate_from = 'title', unique = True, editable = True)
     time_registered = models.DateTimeField("Horário Registrado", auto_now_add = True)
-    
+
     class Meta:
         verbose_name = "Folder"
         verbose_name_plural = "Folders"
