@@ -61,9 +61,6 @@
         <!-- Import Js Jquery -->
         <script src="{% static 'js/jquery/jquery.min.js' %}"></script>
 
-        <!-- Import Js Bootstrap -->
-        <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
-
         <!-- Import Js Bootstrap Bundle -->
         <script src="{% static 'js/bootstrap/bundle/bootstrap.bundle.min.js' %}"></script>
 
@@ -83,25 +80,25 @@
         {% if messages %}
             {% for message in messages %}
                 <div class="position-fixed bottom-0 top-2 right-5 p-3" style="z-index: 5; right: 0; bottom: 0; top:0; margin-top: 60px;">
-                        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000">
-                            <div class="toast-header">
-                                <strong class="me-auto text-{{message.tags}}">
-                                    {% if message.tags == 'success'%}
-                                        Opa, Sucesso...
-                                    {% elif message.tags == 'info'%}
-                                        Informações para você...
-                                    {% elif message.tags == 'warning'%} 
-                                        Ops! Falhas a vista....
-                                    {% elif message.tags == 'error'%}
-                                        Ops! Ocorreu algum erro....
-                                    {% endif %}</strong>
-                                <small class="text-muted">just now</small>
-                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                            </div>
-                            <div class="toast-body text-{{message.tags}}">
-                                {{message}}
-                            </div>
+                    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000">
+                        <div class="toast-header">
+                            <strong class="me-auto text-{{message.tags}}">
+                                {% if message.tags == 'success'%}
+                                    Opa, Sucesso...
+                                {% elif message.tags == 'info'%}
+                                    Informações para você...
+                                {% elif message.tags == 'warning'%} 
+                                    Ops! Falhas a vista....
+                                {% elif message.tags == 'error'%}
+                                    Ops! Ocorreu algum erro....
+                                {% endif %}</strong>
+                            <small class="text-muted">just now</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                         </div>
+                        <div class="toast-body text-{{message.tags}}">
+                            {{message}}
+                        </div>
+                    </div>
                 </div>
             {% endfor %}    
         {% endif %}

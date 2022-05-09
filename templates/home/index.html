@@ -44,13 +44,13 @@
                 <a href="{% url 'list_sub_folders' folder.slug %}" class="folder folder-text border border-1 shadow-sm">
                     <span class="text-muted">{{folder.title}}</span>
                     
-                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink{{folder.id}}" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdown_menu_{{folder.id}}" data-bs-toggle="dropdown" aria-expanded="false">
                        
                     </a>
                     
                     
 
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink{{folder.id}}">
+                    <ul class="dropdown-menu" aria-labelledby="dropdown_menu_{{folder.id}}">
                         <li><a class="dropdown-item" href="#">Action</a></li>
                         <li><a class="dropdown-item" href="#">Another action</a></li>
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
