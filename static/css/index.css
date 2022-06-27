@@ -1,7 +1,9 @@
-.help-block{
-    color: red;
+:root{
+    --primary-color: #0B0418;
+    --secondary-color: #2F293A;
 }
 
+/* FOOTER */
 body {
     display: flex;
     min-height: 100vh;
@@ -11,4 +13,48 @@ body {
 main {
     flex: 1 0 auto;
 }
-      
+
+
+.help-block{
+    color: red;
+}
+
+/* BACKGROUND CUSTOMS */
+.bg__custom__primary{
+    background-color: var(--primary-color);
+}
+
+.bg__custom__secondary{
+    background-color: var(--secondary-color);
+}
+
+/* BORDER CUSTOMS */
+.border__custom{
+    border: 1px solid white;
+}
+
+/* TEXT CUSTOMS */
+.text__custom__primary{
+    color: var(--primary-color) !important;
+}
+
+.text__custom__secondary{
+    color: var(--secondary-color) !important;
+}
+
+/* OTHERS */
+.hover:hover{
+    opacity: .7;
+}
+
+.dropdown-menu{
+    padding: 5px;
+}
+
+.rounded__custom{
+    border-radius: 15px;
+}
+
+.form-label{
+    color: white
+}
