@@ -2,21 +2,18 @@
 
 <!DOCTYPE html>
 
-<html lang="pt-br" class="dark">
-    <!-- BEGIN: HEAD -->
+<html lang="pt-BR">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-        <meta name="description" content="">
-        <meta name="author" content="Lucas Eduardo de Oliveira Santos">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Simple site on posts" />
+        <meta name="author" content="Lucas Eduardo de Oliveira Santos" />
 
-        <!-- Let browser know website is optimized for mobile -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+        <!-- <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.svg' %}"> -->
 
         <!-- Import Material Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-        <!-- BEGIN: CSS ASSETS -->
 
         <!-- Import Css Bootstrap -->
         <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
@@ -29,45 +26,23 @@
 
         {% block css %}
         {% endblock %}
-        <!-- END: CSS ASSETS -->
 
-        <!-- BEGIN: TITLE -->
         <title>
-            {% block title %}
-            {% endblock %}
+            Folders
         </title>
-        <!-- END: TITLE -->
-
     </head>
-    <!-- END: HEAD -->
 
     <body>
-        <!-- BEGIN: CONTENT -->
         <main>
-            <div class="min-vh-100 bg-primary p-4">
-                <div class="bg-light p-3 rounded-3 min-vh-100">
-                    {% block breadcrumb %}
-                    {% endblock %}
-                    
-                    {% block content %}
-                    {% endblock %}
-                </div>
+            <div class="min-vh-100 p-4 bg__custom__primary">
+                {% block breadcrumb %}
+                {% endblock %}
+
+                {% block content %}
+                {% endblock %}
             </div>
         </main>
-        <!-- END: CONTENT -->
 
-        <!-- BEGIN: JS ASSETS -->
-
-        <!-- Import Js Jquery -->
-        <script src="{% static 'js/jquery/jquery.min.js' %}"></script>
-
-        <!-- Import Js Bootstrap Bundle -->
-        <script src="{% static 'js/bootstrap/bundle/bootstrap.bundle.min.js' %}"></script>
-
-        <!-- Import Js Index -->
-        <script src="{% static 'js/index.js' %}"></script>
-
-        <!-- END: JS ASSETS -->
 
         <script>
             $(document).ready(function(){
@@ -75,7 +50,11 @@
             });
         </script>
 
-        <!-- BEGIN: MESSAGES -->
+        <!-- Import Js Jquery -->
+        <script src="{% static 'js/jquery/jquery.min.js' %}"></script>
+        
+        <!-- Import Js Bootstrap Bundle -->
+        <script src="{% static 'js/bootstrap/bundle/bootstrap.bundle.min.js' %}"></script>
 
         {% if messages %}
             {% for message in messages %}
@@ -102,8 +81,6 @@
                 </div>
             {% endfor %}    
         {% endif %}
-
-        <!-- END: MESSAGES -->
 
         {% block script %}
         {% endblock %}
