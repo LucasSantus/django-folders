@@ -8,14 +8,14 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     {% if request.path == '/' %}
-                        <li class="breadcrumb-item bg-light p-2 rounded active" aria-current="page">Dashboard</li>
+                        <li class="breadcrumb-item p-2 bg__custom__secondary rounded active" aria-current="page">Dashboard</li>
                     {% else %}
-                        <li class="breadcrumb-item bg-light p-2 rounded-start"><a href="/">Dashboard</a></li>
+                        <li class="breadcrumb-item p-2 bg__custom__secondary rounded-start"><a href="/">Dashboard</a></li>
                         {% for breadcrumb in breadcrumbs reversed %}
                             {% if forloop.last %}
-                                <li class="breadcrumb-item active bg-light p-2 rounded-end" aria-current="page">{{breadcrumb.title}}</li>
+                                <li class="breadcrumb-item active bg__custom__secondary p-2 rounded-end" aria-current="page">{{breadcrumb.title}}</li>
                             {% else %}
-                                <li class="breadcrumb-item bg-light p-2"><a href="{% url 'list_sub_folders' breadcrumb.slug %}">{{breadcrumb.title}}</a></li>
+                                <li class="breadcrumb-item bg__custom__secondary p-2"><a class="text-white" href="{% url 'list_sub_folders' breadcrumb.slug %}">{{breadcrumb.title}}</a></li>
                             {% endif %}
                         {% endfor %}
                     {% endif %}
@@ -45,11 +45,13 @@
                 </div>
             </a>
         </div>
-
+        <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on TOP">
+            Tooltip on left
+        </button>
         {% for folder in folders %}
             <div class="col-12 col-sm-6 col-md-3 col-lg-2 pt-4 dropend">
-                <a id="folder__{{folder.id}}" class="folder-text d-flex justify-content-center align-items-center cursor-pointer bg__custom__secondary text__custom__primary hover border__custom rounded__custom" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="text-muted">{{folder.title}}</span>
+                <a id="folder__{{folder.id}}" class="folder-text d-flex justify-content-center align-items-center cursor-pointer bg__custom__secondary text__custom__primary hover border__custom rounded__custom " role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-toggle="tooltip" data-bs-placement="top" title="{{folder.title}}">
+                    <span class="text-muted p-5">{{ folder.title|truncatechars:15 }}</span>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="folder__{{folder.id}}">
                     <li>
@@ -65,4 +67,12 @@
             </div>
         {% endfor %}
     </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        $(document).ready(function(){
+            $('.tooltip').tooltip("show");
+        });
+    </script>
 {% endblock %}

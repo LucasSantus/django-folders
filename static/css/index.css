@@ -14,11 +14,6 @@ main {
     flex: 1 0 auto;
 }
 
-
-.help-block{
-    color: red;
-}
-
 /* BACKGROUND CUSTOMS */
 .bg__custom__primary{
     background-color: var(--primary-color);
@@ -30,7 +25,7 @@ main {
 
 /* BORDER CUSTOMS */
 .border__custom{
-    border: 1px solid white;
+    border: 1px solid #0B0418;
 }
 
 /* TEXT CUSTOMS */
@@ -57,4 +52,8 @@ main {
 
 .form-label{
     color: white
+}
+
+.help-block{
+    color: red;
 }

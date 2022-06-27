@@ -66,10 +66,8 @@ def change_folder(request, slug_folder):
     form = FolderForm(instance = folder)
     if request.method == "POST":
         form = FolderForm(request.POST, instance = folder)
-
         if form.is_valid():
             form.save()
-
             messages.success(request, "Folder alterado com sucesso!")
             if folder.sub_folder:
                 return redirect('list_sub_folders', slug_folder)
