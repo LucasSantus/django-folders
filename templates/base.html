@@ -42,7 +42,13 @@
                                 {% if request.path == '/' %}
                                     <li class="breadcrumb-item p-2 bg__custom__secondary rounded active border__custom" aria-current="page">Dashboard</li>
                                 {% else %}
-                                    <li class="breadcrumb-item p-2 bg__custom__secondary rounded-start border__custom__left border__custom__top border__custom__bottom"><a href="/" class="hover">Dashboard</a></li>
+                                    <li class="breadcrumb-item p-2 bg__custom__secondary
+                                        {% if not breadcrumb %}
+                                            rounded-start border__custom__left border__custom__top border__custom__bottom
+                                        {% else %}
+                                            rounded border__custom
+                                        {% endif %}
+                                    "><a href="/" class="hover">Dashboard</a></li>
                                     {% for breadcrumb in breadcrumbs reversed %}
                                         {% if forloop.last %}
                                             <li class="breadcrumb-item active bg__custom__secondary p-2 rounded-end border__custom__top border__custom__bottom border__custom__right" aria-current="page">{{breadcrumb.title}}</li>

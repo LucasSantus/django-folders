@@ -18,7 +18,11 @@ def register_folder(request):
     return render(request, "folders/register_folder.html", context)
 
 def register_sub_folder(request, slug_folder):
-    folder = Folder.objects.get(slug = slug_folder)
+    try: 
+        folder = Folder.objects.get(slug = slug_folder)
+    except :
+        return redirect('/')
+    
     form = FolderForm()
     if request.method == "POST":
         form = FolderForm(request.POST)
@@ -81,11 +85,11 @@ def change_folder(request, slug_folder):
     return render(request, "folders/register_folder.html", context)
 
 def delete_folder(request, slug_folder):
-    folder = Folder.objects.get(slug = slug_folder)
+    folder = Folder.objects.select_related("folder").get(slug = slug_folder)
+    if folder.folder: slug_folder_father = folder.folder.slug
+    folder.delete()
     messages.success(request, "Folder removido com sucesso!")
-    if folder.sub_folder:
-        folder.delete()
-        return redirect('list_sub_folders', slug_folder)
+    if slug_folder_father:
+        return redirect('list_sub_folders', slug_folder_father)
     else:
-        folder.delete()
         return redirect('/')
