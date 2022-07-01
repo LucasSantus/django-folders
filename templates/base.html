@@ -35,8 +35,26 @@
     <body>
         <main>
             <div class="min-vh-100 p-4 bg__custom__primary">
-                {% block breadcrumb %}
-                {% endblock %}
+                <div class="row">
+                    <div class="col-12">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb ">
+                                {% if request.path == '/' %}
+                                    <li class="breadcrumb-item p-2 bg__custom__secondary rounded active border__custom" aria-current="page">Dashboard</li>
+                                {% else %}
+                                    <li class="breadcrumb-item p-2 bg__custom__secondary rounded-start border__custom__left border__custom__top border__custom__bottom"><a href="/" class="hover">Dashboard</a></li>
+                                    {% for breadcrumb in breadcrumbs reversed %}
+                                        {% if forloop.last %}
+                                            <li class="breadcrumb-item active bg__custom__secondary p-2 rounded-end border__custom__top border__custom__bottom border__custom__right" aria-current="page">{{breadcrumb.title}}</li>
+                                        {% else %}
+                                            <li class="breadcrumb-item bg__custom__secondary p-2 border__custom__top border__custom__bottom"><a href="{% url 'list_sub_folders' breadcrumb.slug %}">{{breadcrumb.title}}</a></li>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
 
                 {% block content %}
                 {% endblock %}
@@ -45,13 +63,16 @@
 
         <!-- Import Js Jquery -->
         <script src="{% static 'js/jquery/jquery.min.js' %}"></script>
-        
+
         <!-- Import Js Bootstrap Bundle -->
         <script src="{% static 'js/bootstrap/bundle/bootstrap.bundle.min.js' %}"></script>
 
         <script>
             $(document).ready(function(){
                 $(".toast").toast('show');
+                $(function () {
+                    $('[data-toggle="tooltip"]').tooltip()
+                })
             });
         </script>
 

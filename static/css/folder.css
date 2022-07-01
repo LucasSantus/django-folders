@@ -1,3 +1,8 @@
+.folder-text,
+.folder-icon{
+    text-decoration: none !important;
+}
+
 @media (min-width: 100px) and (max-width: 219.99px) {
     .folder-text,
     .folder-icon{

@@ -2,29 +2,6 @@
 
 {% load static %}
 
-{% block breadcrumb %}
-    <div class="row">
-        <div class="col-12">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    {% if request.path == '/' %}
-                        <li class="breadcrumb-item p-2 bg__custom__secondary rounded active" aria-current="page">Dashboard</li>
-                    {% else %}
-                        <li class="breadcrumb-item p-2 bg__custom__secondary rounded-start"><a href="/">Dashboard</a></li>
-                        {% for breadcrumb in breadcrumbs reversed %}
-                            {% if forloop.last %}
-                                <li class="breadcrumb-item active bg__custom__secondary p-2 rounded-end" aria-current="page">{{breadcrumb.title}}</li>
-                            {% else %}
-                                <li class="breadcrumb-item bg__custom__secondary p-2"><a class="text-white" href="{% url 'list_sub_folders' breadcrumb.slug %}">{{breadcrumb.title}}</a></li>
-                            {% endif %}
-                        {% endfor %}
-                    {% endif %}
-                </ol>
-            </nav>
-        </div>
-    </div>
-{% endblock %}
-
 {% block content %}
     <div class="row">
         <div class="col-12 col-sm-6 col-md-3 col-lg-2 pt-4">
@@ -35,44 +12,33 @@
                     {% url 'register_sub_folder' folder.slug %}
                 {% endif %}
             " class="folder-icon d-flex justify-content-center align-items-center cursor-pointer bg__custom__secondary text__custom__primary hover border__custom rounded__custom">
-                <div class="row text-center">
-                    <div class="col-12">
-                        <span class="material-icons">add</span>
-                    </div>
-                    <div class="col-12">
-                        <span>Add</span>
-                    </div>
+                <div class="d-flex flex-column text-center text-white" data-toggle="tooltip" title="Adicionar nova pasta">
+                    <span class="material-icons fs-4">add</span>
                 </div>
             </a>
         </div>
-        <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on TOP">
-            Tooltip on left
-        </button>
+
         {% for folder in folders %}
             <div class="col-12 col-sm-6 col-md-3 col-lg-2 pt-4 dropend">
-                <a id="folder__{{folder.id}}" class="folder-text d-flex justify-content-center align-items-center cursor-pointer bg__custom__secondary text__custom__primary hover border__custom rounded__custom " role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-toggle="tooltip" data-bs-placement="top" title="{{folder.title}}">
-                    <span class="text-muted p-5">{{ folder.title|truncatechars:15 }}</span>
+                <a
+                    id="folder__{{folder.id}}" 
+                    class="folder-text d-flex justify-content-center align-items-center cursor-pointer bg__custom__secondary text-white hover border__custom rounded__custom" 
+                    role="button" data-bs-toggle="dropdown" aria-expanded="false" 
+                >
+                    <span class="p-5" data-toggle="tooltip" title="{{folder.title}}">{{ folder.title|truncatechars:15 }}</span>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="folder__{{folder.id}}">
                     <li>
-                        <a class="dropdown-item d-flex align-items-center gap-1 text-warning" href="{% url 'list_sub_folders' folder.slug %}"><span class="material-icons">folder_open</span>Open</a>
+                        <a class="dropdown-item d-flex align-items-center gap-1 text-warning" href="{% url 'list_sub_folders' folder.slug %}"><span class="material-icons">folder_open</span>Acessar</a>
                     </li>
                     <li>
-                        <a class="dropdown-item d-flex align-items-center gap-1 text-info" href="{% url 'change_folder' folder.slug %}"><span class="material-icons">edit_note</span>Edit</a>
+                        <a class="dropdown-item d-flex align-items-center gap-1 text-info" href="{% url 'change_folder' folder.slug %}"><span class="material-icons">edit_note</span>Editar</a>
                     </li>
                     <li>
-                        <a class="dropdown-item d-flex align-items-center gap-1 text-danger" href="{% url 'delete_folder' folder.slug %}"><span class="material-icons">delete</span>Delete</a>
+                        <a class="dropdown-item d-flex align-items-center gap-1 text-danger" href="{% url 'delete_folder' folder.slug %}"><span class="material-icons">delete</span>Remover</a>
                     </li>
                 </ul>
             </div>
         {% endfor %}
     </div>
-{% endblock %}
-
-{% block script %}
-    <script>
-        $(document).ready(function(){
-            $('.tooltip').tooltip("show");
-        });
-    </script>
 {% endblock %}

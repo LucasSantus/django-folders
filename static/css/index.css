@@ -1,6 +1,7 @@
 :root{
     --primary-color: #0B0418;
-    --secondary-color: #2F293A;
+    --secondary-color: #081a37;
+    --third-color: #1B2C46;
 }
 
 /* FOOTER */
@@ -25,7 +26,23 @@ main {
 
 /* BORDER CUSTOMS */
 .border__custom{
-    border: 1px solid #0B0418;
+    border: 1px solid var(--third-color);
+}
+
+.border__custom__top{
+    border-top: 1px solid var(--third-color);
+}
+
+.border__custom__bottom{
+    border-bottom: 1px solid var(--third-color);
+}
+
+.border__custom__right{
+    border-right: 1px solid var(--third-color);
+}
+
+.border__custom__left{
+    border-left: 1px solid var(--third-color);
 }
 
 /* TEXT CUSTOMS */
@@ -35,6 +52,10 @@ main {
 
 .text__custom__secondary{
     color: var(--secondary-color) !important;
+}
+
+.text__custom__third{
+    color: var(--third-color) !important;
 }
 
 /* OTHERS */
@@ -56,4 +77,21 @@ main {
 
 .help-block{
     color: red;
+}
+
+.dropdown-menu{
+    border-radius: 15px;
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+    background-color: var(--secondary-color);
+}
+
+.dropdown-item:hover{
+    border-radius: 10px;
+    background-color: var(--third-color);
+}
+
+.dropdown-item:focus{
+    border-radius: 10px;
+    background-color: var(--primary-color);
 }
