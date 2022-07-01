@@ -44,15 +44,14 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="modal__remove__folder__label">Modal title</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <h5 class="modal-title" id="modal__remove__folder__label">Remover Pasta</h5>
                             </div>
                             <div class="modal-body">
-                            Tomar sua cú
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <a href="{% url 'delete_folder' folder.slug %}" class="btn btn-primary">Save changes</a>
+                                Removendo esta pasta, a recueração dos dados será impossivel! <br/>deseja realmente remover essa pasta?
+                                <div class="d-flex justify-content-start gap-2 mt-2">
+                                    <button type="button" class="btn btn__custom__third hover" data-bs-dismiss="modal">Fechar</button>
+                                    <a href="{% url 'delete_folder' folder.slug %}" class="btn btn__custom__third hover">Confirmar</a>
+                                </div>
                             </div>
                         </div>
                     </div>

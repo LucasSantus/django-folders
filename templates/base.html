@@ -40,7 +40,9 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb ">
                                 {% if request.path == '/' %}
-                                    <li class="breadcrumb-item p-2 bg__custom__secondary rounded active border__custom" aria-current="page">Dashboard</li>
+                                    <li class="breadcrumb-item p-2 bg__custom__secondary rounded border__custom active" aria-current="page">Dashboard</li>
+                                {% elif 'register' in request.path or 'change' in request.path %}
+                                    <li class="breadcrumb-item p-2 bg__custom__secondary rounded border__custom"><a href="/" class="hover">Dashboard</a></li>
                                 {% else %}
                                     <li class="breadcrumb-item p-2 bg__custom__secondary
                                         {% if not breadcrumb %}
@@ -53,7 +55,7 @@
                                         {% if forloop.last %}
                                             <li class="breadcrumb-item active bg__custom__secondary p-2 rounded-end border__custom__top border__custom__bottom border__custom__right" aria-current="page">{{breadcrumb.title}}</li>
                                         {% else %}
-                                            <li class="breadcrumb-item bg__custom__secondary p-2 border__custom__top border__custom__bottom"><a href="{% url 'list_sub_folders' breadcrumb.slug %}">{{breadcrumb.title}}</a></li>
+                                            <li class="breadcrumb-item bg__custom__secondary p-2 border__custom__top border__custom__bottom"><a href="{% url 'list_sub_folders' breadcrumb.slug %}" class="hover">{{breadcrumb.title}}</a></li>
                                         {% endif %}
                                     {% endfor %}
                                 {% endif %}

@@ -13,7 +13,7 @@ def register_folder(request):
 
     context = {
         'form': form,
-        'action': 'Register'
+        'action': 'Registrar'
     }
     return render(request, "folders/register_folder.html", context)
 
@@ -37,7 +37,7 @@ def register_sub_folder(request, slug_folder):
 
     context = {
         'form': form,
-        'action': 'Register'
+        'action': 'Registrar'
     }
     return render(request, "folders/register_folder.html", context)
 
