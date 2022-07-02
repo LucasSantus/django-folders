@@ -1,41 +1,6 @@
-.folder{
-    text-decoration: none !important;
-}
-
-.folder-text, .folder-icon{
-    width: 100%;
-    border-radius: 15px;
-}
-
-.folder-text{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.folder-text .btn{
-    position: fixed;
-    top: 0px;
-}
-
-.folder-text:hover, .folder-icon:hover{
-    opacity: .7;
-}
-
+.folder-text,
 .folder-icon{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.folder-icon span{
-    color:  #0378d5;
-}
-
-.folder-icon:hover span{
-    color:  #0378d5;
+    text-decoration: none !important;
 }
 
 @media (min-width: 100px) and (max-width: 219.99px) {

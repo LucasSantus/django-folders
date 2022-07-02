@@ -1,7 +1,9 @@
 from django.urls import path
-from .views import index
+from home.views import index
 
 urlpatterns = [
     # INDEX
     path("", index, name="index"),
 ]
+
+handler404 = "home.views.error_404"

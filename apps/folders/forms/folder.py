@@ -1,7 +1,7 @@
 from django import forms
-from .models import *
+from folders.models import *
 
-class RegisterFolderForm(forms.ModelForm):
+class FolderForm(forms.ModelForm):
     class Meta:
         model = Folder
         fields = ['title']
@@ -11,4 +11,8 @@ class RegisterFolderForm(forms.ModelForm):
                 "required": "O nome é obrigatório para realizar o registro!",
                 "invalid": "Por favor, insira um nome válido!",
             },
+        }
+
+        aaa = {
+            'add_success': "toma sua cú"
         }

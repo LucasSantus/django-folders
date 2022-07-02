@@ -2,60 +2,60 @@
 
 {% load static %}
 
-{% block title %}
-    Folders
-{% endblock %}
-
-{% block breadcrumb %}
-    <div class="row">
-        <div class="col-12">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active bg-light p-2 rounded" aria-current="page">Dashboard</li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-{% endblock %}
-
 {% block content %}
     <div class="row">
         <div class="col-12 col-sm-6 col-md-3 col-lg-2 pt-4">
-            <a href="{% url 'register_folder' %}" class="folder folder-icon border border-1 shadow-sm">
-                <div class="row text-center">
-                    <div class="col-12">
-                        <span class="material-icons">add</span>
-                    </div>
-                    <div class="col-12">
-                        <span>Add</span>
-                    </div>
+            <a href="
+                {% if request.path == '/' %}
+                    {% url 'register_folder' %}
+                {% else %}
+                    {% url 'register_sub_folder' folder.slug %}
+                {% endif %}
+            " class="folder-icon d-flex justify-content-center align-items-center cursor-pointer bg__custom__secondary text__custom__primary hover border__custom rounded__custom">
+                <div class="d-flex flex-column text-center text-white" data-toggle="tooltip" title="Adicionar nova pasta">
+                    <span class="material-icons fs-4">add</span>
                 </div>
             </a>
         </div>
 
         {% for folder in folders %}
-            <!-- <div class="col-12 col-sm-6 col-md-3 col-lg-2 pt-4">
-                <a href="{% url 'list_sub_folders' folder.slug %}" class="folder folder-icon border border-1 shadow-sm">
-                    <span class="text-muted">{{folder.title}}</span>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-2 pt-4 dropend">
+                <a
+                    id="folder__{{folder.id}}" 
+                    class="folder-text d-flex justify-content-center align-items-center cursor-pointer bg__custom__secondary text-white hover border__custom rounded__custom" 
+                    role="button" data-bs-toggle="dropdown" aria-expanded="false" 
+                >
+                    <span class="p-5" data-toggle="tooltip" title="{{folder.title}}">{{ folder.title|truncatechars:15 }}</span>
                 </a>
-            </div> -->
+                <ul class="dropdown-menu" aria-labelledby="folder__{{folder.id}}">
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center gap-1 text-warning" href="{% url 'list_sub_folders' folder.slug %}"><span class="material-icons">folder_open</span>Acessar</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center gap-1 text-info" href="{% url 'change_folder' folder.slug %}"><span class="material-icons">edit_note</span>Editar</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center gap-1 text-danger" href="#" data-bs-toggle="modal" data-bs-target="#modal__remove__folder"><span class="material-icons">delete</span>Remover</a>
+                    </li>
+                </ul>
 
-            <div class="col-12 col-sm-6 col-md-3 col-lg-2 pt-4">
-                <a href="{% url 'list_sub_folders' folder.slug %}" class="folder folder-text border border-1 shadow-sm">
-                    <span class="text-muted">{{folder.title}}</span>
-                    
-                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdown_menu_{{folder.id}}" data-bs-toggle="dropdown" aria-expanded="false">
-                       
-                    </a>
-                    
-                    
-
-                    <ul class="dropdown-menu" aria-labelledby="dropdown_menu_{{folder.id}}">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </a>
+                <!-- Modal -->
+                <div class="modal fade" id="modal__remove__folder" tabindex="-1" aria-labelledby="modal__remove__folder__label" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modal__remove__folder__label">Remover Pasta</h5>
+                            </div>
+                            <div class="modal-body">
+                                Removendo esta pasta, a recueração dos dados será impossivel! <br/>deseja realmente remover essa pasta?
+                                <div class="d-flex justify-content-start gap-2 mt-2">
+                                    <button type="button" class="btn btn__custom__third hover" data-bs-dismiss="modal">Fechar</button>
+                                    <a href="{% url 'delete_folder' folder.slug %}" class="btn btn__custom__third hover">Confirmar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         {% endfor %}
     </div>

@@ -2,21 +2,18 @@
 
 <!DOCTYPE html>
 
-<html lang="pt-br" class="dark">
-    <!-- BEGIN: HEAD -->
+<html lang="pt-BR">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-        <meta name="description" content="">
-        <meta name="author" content="Lucas Eduardo de Oliveira Santos">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Simple site on posts" />
+        <meta name="author" content="Lucas Eduardo de Oliveira Santos" />
 
-        <!-- Let browser know website is optimized for mobile -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+        <!-- <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.svg' %}"> -->
 
         <!-- Import Material Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-        <!-- BEGIN: CSS ASSETS -->
 
         <!-- Import Css Bootstrap -->
         <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
@@ -29,34 +26,45 @@
 
         {% block css %}
         {% endblock %}
-        <!-- END: CSS ASSETS -->
 
-        <!-- BEGIN: TITLE -->
         <title>
-            {% block title %}
-            {% endblock %}
+            Folders
         </title>
-        <!-- END: TITLE -->
-
     </head>
-    <!-- END: HEAD -->
 
     <body>
-        <!-- BEGIN: CONTENT -->
         <main>
-            <div class="min-vh-100 bg-primary p-4">
-                <div class="bg-light p-3 rounded-3 min-vh-100">
-                    {% block breadcrumb %}
-                    {% endblock %}
-                    
-                    {% block content %}
-                    {% endblock %}
+            <div class="min-vh-100 p-4 bg__custom__primary">
+                <div class="row">
+                    <div class="col-12">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb ">
+                                {% if request.path == '/' %}
+                                    <li class="breadcrumb-item p-2 bg__custom__secondary rounded border__custom active" aria-current="page">Dashboard</li>
+                                {% else %}
+                                    <li class="breadcrumb-item p-2 bg__custom__secondary
+                                        {% if not breadcrumb %}
+                                            rounded-start border__custom__left border__custom__top border__custom__bottom
+                                        {% else %}
+                                            rounded border__custom
+                                        {% endif %}
+                                    "><a href="/" class="hover">Dashboard</a></li>
+                                    {% for breadcrumb in breadcrumbs reversed %}
+                                        {% if forloop.last %}
+                                            <li class="breadcrumb-item active bg__custom__secondary p-2 rounded-end border__custom__top border__custom__bottom border__custom__right" aria-current="page">{{breadcrumb.title}}</li>
+                                        {% else %}
+                                            <li class="breadcrumb-item bg__custom__secondary p-2 border__custom__top border__custom__bottom"><a href="{% url 'list_sub_folders' breadcrumb.slug %}" class="hover">{{breadcrumb.title}}</a></li>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            </ol>
+                        </nav>
+                    </div>
                 </div>
+                {% block content %}
+                {% endblock %}
             </div>
         </main>
-        <!-- END: CONTENT -->
-
-        <!-- BEGIN: JS ASSETS -->
 
         <!-- Import Js Jquery -->
         <script src="{% static 'js/jquery/jquery.min.js' %}"></script>
@@ -64,18 +72,14 @@
         <!-- Import Js Bootstrap Bundle -->
         <script src="{% static 'js/bootstrap/bundle/bootstrap.bundle.min.js' %}"></script>
 
-        <!-- Import Js Index -->
-        <script src="{% static 'js/index.js' %}"></script>
-
-        <!-- END: JS ASSETS -->
-
         <script>
             $(document).ready(function(){
                 $(".toast").toast('show');
+                $(function () {
+                    $('[data-toggle="tooltip"]').tooltip()
+                })
             });
         </script>
-
-        <!-- BEGIN: MESSAGES -->
 
         {% if messages %}
             {% for message in messages %}
@@ -102,8 +106,6 @@
                 </div>
             {% endfor %}    
         {% endif %}
-
-        <!-- END: MESSAGES -->
 
         {% block script %}
         {% endblock %}

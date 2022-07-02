@@ -10,14 +10,15 @@ sys.path.append(
     os.path.join(BASE_DIR, "apps")
 )
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
+# SECRET_KEY = 'django-insecure-azl4pja2%al+*2&vff3g&79h^x9pa$(g=8i7)4fagv!&#qncsc'
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-azl4pja2%al+*2&vff3g&79h^x9pa$(g=8i7)4fagv!&#qncsc'
+SECRET_KEY = str(os.environ.get('SECRET_KEY', "django-insecure-900u2i6xbp12y#l7-%ch9h(w(jxj17n)c1btv1p=$6$iz27t7m"))
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = int(os.environ.get('DEBUG', 1))
+
+ALLOWED_HOSTS = ['127.0.0.1']
+
+INTERNAL_IPS = ('*')
 
 # Application definition
 INSTALLED_APPS = [
@@ -31,7 +32,7 @@ INSTALLED_APPS = [
 
 # APP's Externas
 INSTALLED_APPS += [
-    'bootstrapform',
+    'bootstrap5',
 ]
 
 INSTALLED_APPS += [
@@ -69,8 +70,25 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'project.wsgi.application'
 
-# Password validation
-# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
+DATABASES = {
+    'default': {
+        'ENGINE': str(os.environ.get('DB_ENGINE', 'django.db.backends.sqlite3')),
+        'NAME': str(os.environ.get('DB_NAME', BASE_DIR / 'db.sqlite3')),
+        'USER': str(os.environ.get('DB_USER', '')),
+        'PASSWORD': str(os.environ.get('DB_PASSWORD', '')),
+        'HOST': str(os.environ.get('DB_HOST', '')),
+        'PORT': str(os.environ.get('DB_PORT', ''))
+    }
+}
+
+if DEBUG:
+    INSTALLED_APPS += ['debug_toolbar']
+
+    MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware'] + MIDDLEWARE
+
+    DEBUG_TOOLBAR_CONFIG = {
+        'SHOW_TOOLBAR_CALLBACK': lambda request: False if request.is_ajax() else True,
+    }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -119,8 +137,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/' 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-try:
-    from .settings_local import *
-except ImportError:
-    pass

@@ -1,7 +1,10 @@
-.help-block{
-    color: red;
+:root{
+    --primary-color: #0B0418;
+    --secondary-color: #081a37;
+    --third-color: #1B2C46;
 }
 
+/* FOOTER */
 body {
     display: flex;
     min-height: 100vh;
@@ -11,4 +14,139 @@ body {
 main {
     flex: 1 0 auto;
 }
-      
+
+/* BACKGROUND CUSTOMS */
+.bg__custom__primary{
+    background-color: var(--primary-color);
+}
+
+.bg__custom__secondary{
+    background-color: var(--secondary-color);
+}
+
+.bg__custom__third{
+    background-color: var(--third-color);
+}
+
+/* TEXT CUSTOMS */
+.text__custom__primary{
+    color: var(--primary-color) !important;
+}
+
+.text__custom__secondary{
+    color: var(--secondary-color) !important;
+}
+
+.text__custom__third{
+    color: var(--third-color) !important;
+}
+
+/* BUTTONS CUSTOMS */
+.btn__custom__primary,
+.btn__custom__secondary,
+.btn__custom__third{
+    color: white !important;
+}
+
+.btn__custom__primary{
+    background-color: var(--primary-color);
+}
+
+.btn__custom__secondary{
+    background-color: var(--secondary-color);
+}
+
+.btn__custom__third{
+    background-color: var(--third-color);
+}
+
+/* BORDER CUSTOMS */
+.rounded__custom{
+    border-radius: 15px;
+}
+
+.border__custom{
+    border: 1px solid var(--third-color);
+}
+
+.border__custom__top{
+    border-top: 1px solid var(--third-color);
+}
+
+.border__custom__bottom{
+    border-bottom: 1px solid var(--third-color);
+}
+
+.border__custom__right{
+    border-right: 1px solid var(--third-color);
+}
+
+.border__custom__left{
+    border-left: 1px solid var(--third-color);
+}
+
+/* FORMS CUSTOMS */
+.form-label{
+    color: #616871;
+}
+
+.form-control,
+.form-control:focus{
+    background-color: var(--secondary-color);
+    border: 1px solid var(--third-color);
+    color: #616871;
+}
+
+.help-block{
+    color: red;
+}
+
+/* DROPDOWNS CUSTOMS */
+.dropdown-menu{
+    padding: 8px;
+    border-radius: 15px;
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+    background-color: var(--secondary-color);
+}
+
+.dropdown-item{
+    border-radius: 10px;
+}
+
+.dropdown-item:hover{
+    background-color: var(--third-color);
+}
+
+.dropdown-item:focus{
+    background-color: var(--primary-color);
+}
+
+/* MODAL CUSTOMS */
+.modal-header{
+    border: 0px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: var(--secondary-color);
+    border-bottom: 1px solid white;
+}
+
+.modal-header .btn-close{
+    color: white !important;
+}
+
+.modal-body{
+    background-color: var(--secondary-color);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.modal-content{
+    border-radius: 50px !important;
+    color: white
+}
+
+/* OTHERS CUSTOMS */
+.hover:hover{
+    opacity: .7;
+}

@@ -2,43 +2,27 @@
 
 {% load static %}
 
-{% load bootstrap %}
-
-{% block title %}
-    {{ action }} Folder
-{% endblock %}
+{% load bootstrap5 %}
 
 {% block content %}
-    <div class="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <form method="POST">
-                    {% csrf_token %}
-                    <div class="modal-body">
-                        <p class="text-muted fs-3 text-center">{{action}}</p>
-                        {{form|bootstrap}}
-                        <div class="d-flex justify-content-end pt-3 gap-2">
-                            <a href="/" class="btn btn-secondary">
-                                Cancel
-                            </a>
-                            <button class="btn btn-primary">
-                                {{action}}
-                            </button>
-                        </div>
-                    </div>
-                </form>
+    <div class="container col-12 col-sm-8 col-md-6">
+        <form method="POST" class="d-flex flex-column justify-content-center">
+            {% csrf_token %}
+            <p class="text-muted fs-3 text-center">{{action}} Pasta</p>
+            {% bootstrap_form form %}
+            <div class="d-flex justify-content-start pt-3 gap-2">
+                <button class="btn btn__custom__third border__custom hover">
+                    {{action}}
+                </button>
             </div>
-        </div>
+        </form>
     </div>
 {% endblock %}
 
 {% block script %}
-    <script>
+    <script type="text/javascript">
         $(document).ready(function(){
-            
-            $("#modal").modal('show');
-            $("#id_title").attr("required", false);
-            $("#id_title").focus()
+            $(".form-control").removeAttr("required", true)
         });
     </script>
 {% endblock %}

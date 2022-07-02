@@ -15,3 +15,15 @@ class Folder(models.Model):
 
     def __str__(self):
         return self.title
+
+    def breadcrumbs(self, main):
+        breadcrumbs = []
+        aux = main
+        breadcrumbs.append(main)
+        while aux.sub_folder != False:
+            if len(breadcrumbs) < 5:
+                aux = aux.folder
+                breadcrumbs.append(aux)
+            else:
+                break
+        return breadcrumbs

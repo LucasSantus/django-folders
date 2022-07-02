@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import *
+from folders.models import *
 
 # class PastaAdmin(admin.ModelAdmin):
 #     list_display = ('titulo', 'vinculo', 'horario_registrado')
