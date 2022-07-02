@@ -5,3 +5,5 @@ urlpatterns = [
     # INDEX
     path("", index, name="index"),
 ]
+
+handler404 = "home.views.error_404"

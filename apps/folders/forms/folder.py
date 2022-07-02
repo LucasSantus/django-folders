@@ -12,3 +12,7 @@ class FolderForm(forms.ModelForm):
                 "invalid": "Por favor, insira um nome válido!",
             },
         }
+
+        aaa = {
+            'add_success': "toma sua cú"
+        }
