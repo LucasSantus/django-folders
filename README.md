@@ -1,4 +1,4 @@
-<h1 align="center">Posts</h1>
+<h1 align="center">Folders</h1>
 
 <h6 align="center"> 
 	Se você quiser visualizar as imagens do aplicativo, clique <a href="https://folders-django.herokuapp.com/">aqui</a>.
