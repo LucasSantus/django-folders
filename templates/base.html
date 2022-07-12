@@ -19,10 +19,10 @@
         <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
 
         <!-- Import Css Folder -->
-        <link href="{% static 'css/folder.css' %}" rel="stylesheet">
+        <link href="{% static 'css/folder/folder.min.css' %}" rel="stylesheet">
 
         <!-- Import Css Index -->
-        <link href="{% static 'css/index.css' %}" rel="stylesheet">
+        <link href="{% static 'css/index.min.css' %}" rel="stylesheet">
 
         {% block css %}
         {% endblock %}
@@ -103,6 +103,7 @@
             });
 
             /* disabled Context Menu on pages */
+            document.addEventListener('contextmenu', event => event.preventDefault());
         </script>
 
         {% if messages %}
