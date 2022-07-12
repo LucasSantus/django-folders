@@ -1,7 +1,7 @@
 <h1 align="center">Folders</h1>
 
 <h6 align="center"> 
-	Se você quiser visualizar as imagens do aplicativo, clique <a href="https://folders-django.herokuapp.com/">aqui</a>.
+	Se você quiser visualizar o sistema, clique <a href="https://folders-django.herokuapp.com/">aqui</a>.
 </h6>
 
 <h3 id="sobre">:information_source: Sobre</h3>
