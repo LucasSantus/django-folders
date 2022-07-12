@@ -1,12 +1,16 @@
-<h1 align="center">Folders</h1>
+<h1 align="center">Posts</h1>
+
+<h6 align="center"> 
+	Se você quiser visualizar as imagens do aplicativo, clique <a href="https://folders-django.herokuapp.com/">aqui</a>.
+</h6>
 
 <h3 id="sobre">:information_source: Sobre</h3>
 
-> Este projeto foi desenvolvido utilizando o Django como framework back-end e o Bootstrap como framework front-end. 
+> Este projeto foi desenvolvido utilizando o Django Framework como back-end e Bootstrap 5 no front-end. 
 
 A ideia é:
 
-_"Criar um sistema de pastas possibilitando o cadastro de sub pastas sem um limite, onde o mesmo tenha um design simples e belo, com intuito de promover o aprendizado utilizando o Django Framework."_
+_"Criar um projeto relacionado a um sistema de pastas possibilitando o cadastro de pastas e sub pastas sem um limite sendo completamente dinâmico, onde o usuário consiga adicionar, visualizar, editar e remover uma pasta & sub pasta. Tendo como objetivo a construção do backend da aplicação com intuito de promover o aprendizado na área relacionado ao Django Framework."_
 
 --------------------------------------------------------------------------------------
 
@@ -22,7 +26,6 @@ _"Criar um sistema de pastas possibilitando o cadastro de sub pastas sem um limi
     * [Clonando Repositório](#clonando)
     * [Windows](#rodando-windows)
     * [Linux](#rodando-linux)
-* [Comandos](#comandos)
 * [Autor](#autor)
 * [Licença](#license)
 
@@ -50,15 +53,27 @@ Este é um projeto totalmente grátis!
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-- [Django Framework](https://www.djangoproject.com/)
-- [Boostrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+- [Django Framework 3.2](https://www.djangoproject.com/)
+- [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+- [Django Auto Slug 1.9.8](https://pypi.org/project/django-autoslug/)
+- [Django Form Bootstrap V5](https://pypi.org/project/django-bootstrap-v5/)
+- [Django Debug Toolbar 3.2.4](https://pypi.org/project/django-debug-toolbar/3.2.4/)
 
 --------------------------------------------------------------------------------------
 
 <h3 id="funcionalidades">:sparkles: Funcionalidades</h3>
 
-- [X] Possibilita a criação de pastas.
-- [X] Possibilita a criação de varias sub pastas.
+- [X] Possibilita a criação de novas pastas.
+- [X] Possibilita a visualização de uma pasta.
+- [X] Possibilita a modificação de uma pasta.
+- [X] Possibilita a remoção de uma pasta.
+
+- [X] Possibilita a criação de novas sub pastas.
+- [X] Possibilita a visualização de uma sub pasta.
+- [X] Possibilita a modificação de uma sub pasta.
+- [X] Possibilita a remoção de uma sub pasta.
+
+- [X] Possibilita a visualização da migalha de pão[BreadCrumb] durante a navegação entre pastas.
 
 --------------------------------------------------------------------------------------
 
@@ -97,8 +112,6 @@ python manage.py makemigrations folders
 
 python manage.py migrate
 
-python manage.py collectstatic
-
 python manage.py runserver
 ```
 
@@ -127,8 +140,6 @@ python manage.py makemigrations folders
 
 python manage.py migrate
 
-python manage.py collectstatic
-
 python manage.py runserver
 ```
 
@@ -137,6 +148,7 @@ python manage.py runserver
 ```
 python manage.py createsuperuser
 ```
+
 **Acessando o Projeto**
 
 para visualizar o projeto: http://127.0.0.1:8000/
@@ -149,15 +161,7 @@ http://127.0.0.1:8000/admin/
 
 --------------------------------------------------------------------------------------
 
-<h3 id="comandos">:paperclip: Comandos</h3>
-
-> **Observação:** Caso tenha surgido dúvidas sobre os códigos no processo de instalação, o link abaixo contém explicações dos comandos e scripts para "automátição" do projeto.
-
-Para melhor entendimento sobre os comandos mostrados acima, clique [aqui](COMMANDS.md).
-
---------------------------------------------------------------------------------------
-
-<h3 id="autor">:bust_in_silhouette: Autor(es)</h3>
+<h3 id="autor">:bust_in_silhouette: Autor</h3>
 
 <table>
 	<tr>
