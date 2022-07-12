@@ -10,7 +10,7 @@
         <meta name="description" content="Simple site on posts" />
         <meta name="author" content="Lucas Eduardo de Oliveira Santos" />
 
-        <!-- <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.svg' %}"> -->
+        <link rel="icon" type="image/x-icon" href="{% static 'images/logo.svg' %}">
 
         <!-- Import Material Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -30,6 +30,28 @@
         <title>
             Folders
         </title>
+
+        <!-- if javascript is disabled, this content will appear -->
+        <noscript>
+            <style type="text/css">
+                body main{
+                    display: none;
+                }
+                .javascript__disabled{
+                    display: flex;
+                    width: 100%;
+                    height: 100vh;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 22px;
+                    background-color: #0B0418;
+                    color: #8f8f8f;
+                }
+            </style>
+            <div class="javascript__disabled">
+                JavaScript desativado, por favor, ative-o para o sistema funcionar corretamente!
+            </div>
+        </noscript>
     </head>
 
     <body>
@@ -79,6 +101,8 @@
                     $('[data-toggle="tooltip"]').tooltip()
                 })
             });
+
+            /* disabled Context Menu on pages */
         </script>
 
         {% if messages %}

@@ -104,6 +104,7 @@ main {
 /* DROPDOWNS CUSTOMS */
 .dropdown-menu{
     padding: 8px;
+    border: 1px solid var(--third-color);
     border-radius: 15px;
     margin-left: 15px !important;
     margin-right: 15px !important;
